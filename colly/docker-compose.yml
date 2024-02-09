@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+    archivebox:
+        image: 'archivebox/archivebox:dev'
+        command: server --quick-init 0.0.0.0:8000
+        ports:
+            - 8000:8000
+        environment:
+            # add any ArchiveBox config options you want here
+            - ALLOWED_HOSTS=*
+            - MEDIA_MAX_SIZE=750m
+        volumes:
+            - ./data:/data
